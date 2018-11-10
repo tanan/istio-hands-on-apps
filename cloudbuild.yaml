@@ -1,0 +1,19 @@
+steps:
+- name: 'gcr.io/cloud-builders/go'
+  args: ['install', '.']
+  env: ['PROJECT_ROOT=istio-hands-on-apps']
+- name: 'gcr.io/cloud-builders/go'
+  args: ['build', '-o', 'top', 'main.go']
+  env: ['PROJECT_ROOT=istio-hands-on-apps']
+  dir: 'top'
+- name: 'gcr.io/cloud-builders/go'
+  args: ['build', '-o', 'news', 'main.go']
+  env: ['PROJECT_ROOT=istio-hands-on-apps']
+  dir: 'news'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/istio-apps/top:$_VERSION', '.']
+  dir: 'top'
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/istio-apps/news:$_VERSION', '.']
+  dir: 'news'
+images: ['gcr.io/$PROJECT_ID/istio-apps/top:$_VERSION', 'gcr.io/$PROJECT_ID/istio-apps/news:$_VERSION']
