@@ -1,8 +1,5 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
-  args: ['install', '.']
-  env: ['PROJECT_ROOT=istio-hands-on-apps']
-- name: 'gcr.io/cloud-builders/go'
   args: ['build', '-o', 'top', 'main.go']
   env: ['PROJECT_ROOT=istio-hands-on-apps']
   dir: 'top'
