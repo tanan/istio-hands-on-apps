@@ -1,9 +1,9 @@
 steps:
-- name: 'gcr.io/cloud-builders/go'
+- name: 'gcr.io/cloud-builders/go:alpine'
   args: ['build', '-o', 'top', 'main.go']
   env: ['PROJECT_ROOT=istio-hands-on-apps']
   dir: 'top'
-- name: 'gcr.io/cloud-builders/go'
+- name: 'gcr.io/cloud-builders/go:alpine'
   args: ['build', '-o', 'news', 'main.go']
   env: ['PROJECT_ROOT=istio-hands-on-apps']
   dir: 'news'
