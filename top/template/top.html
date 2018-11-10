@@ -1,0 +1,6 @@
+<h1>{{.PageTitle}}</h1>
+<ul>
+{{range .Contents}}
+    <li><a href="/{{.Path}}">{{.Title}}</a></li>
+{{end}}
+</ul>
