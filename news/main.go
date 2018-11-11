@@ -21,13 +21,14 @@ func newsHandler(w http.ResponseWriter, r *http.Request) {
 	data := NewsData{
 		PageTitle: "top page",
 		NewsContents: []NewsContent{
-			{Title: "istio v1.0.0 release!!", Description: "this is a description statement"},
-			{Title: "istio v1.0.1 release!!", Description: "this is a description statement"},
-			{Title: "istio v1.0.2 release!!", Description: "this is a description statement"},
-			{Title: "istio v1.0.3 release!!", Description: "this is a description statement"},
+			{Title: "istio v1.0.0 release!!", Description: " this is a description statement"},
+			{Title: "istio v1.0.1 release!!", Description: " this is a description statement"},
+			{Title: "istio v1.0.2 release!!", Description: " this is a description statement"},
+			{Title: "istio v1.0.3 release!!", Description: " this is a description statement"},
 		},
 	}
 	t.Execute(w, data)
+	log.Println("news page access")
 }
 
 func main() {

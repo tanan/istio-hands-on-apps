@@ -26,6 +26,7 @@ func topHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 	t.Execute(w, data)
+	log.Println("top page access")
 }
 
 func main() {
